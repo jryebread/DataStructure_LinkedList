@@ -28,15 +28,6 @@ namespace LL
 	};
 #endif
 
-	template<class T>
-	void LinkedList<T>::addRoot(T value)
-	{
-		Node<T> *n = new Node<T>;
-		n->data = value;
-		n->next = nullptr;
-		n->prev = nullptr;
-		nodes++;
-	}
 
 	/* class definition ===============*/
 	template<class T>
@@ -59,6 +50,15 @@ namespace LL
 		return nodes;
 	}
 	template<class T>
+	void LinkedList<T>::addRoot(T value)
+	{
+		Node<T> *n = new Node<T>;
+		n->data = value;
+		n->next = nullptr;
+		n->prev = nullptr;
+		nodes++;
+	}
+	template<class T>
 	void LinkedList<T>::addFront(T value)
 	{
 		if (isEmpty())
@@ -67,7 +67,7 @@ namespace LL
 		}
 		else
 		{
-			Node<T> *n = new Node<T>;
+			Node<T> *n;
 			n->next = Head;
 			n->prev = nullptr;
 			Head->prev = n;

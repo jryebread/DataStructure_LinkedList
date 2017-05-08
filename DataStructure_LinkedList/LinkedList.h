@@ -35,7 +35,7 @@ namespace LL
 		n->data = value;
 		n->next = nullptr;
 		n->prev = nullptr;
-		size++;
+		nodes++;
 	}
 
 	/* class definition ===============*/
@@ -66,7 +66,8 @@ namespace LL
 			addRoot(value);
 		}
 		else
-		{//hello
+		{
+			Node<T> *n = new Node<T>;
 			n->next = Head;
 			n->prev = nullptr;
 			Head->prev = n;

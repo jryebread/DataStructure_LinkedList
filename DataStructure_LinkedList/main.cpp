@@ -7,11 +7,12 @@ using namespace std;
 
 //NOTES
 //Doubly link list can traverse backwards
-//Nodes simply hold data
+//Nodes simply hold data and have a pointer to another memory adress
 
 int main()
 {
 	LL::LinkedList<int> nums;
+	nums.addFront(4);
 	cout << "Empty: " << boolalpha << nums.isEmpty() << noboolalpha << endl;
 	cout << "Size: " << nums.size() << endl << endl;
 	return 0;

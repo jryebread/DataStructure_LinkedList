@@ -66,7 +66,7 @@ namespace LL
 			addRoot(value);
 		}
 		else
-		{
+		{//hello
 			n->next = Head;
 			n->prev = nullptr;
 			Head->prev = n;

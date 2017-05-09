@@ -19,8 +19,8 @@ namespace LL
 		unsigned nodes;
 		Node<T> *Head;
 		Node<T> *Tail;
-		void addRoot(T value);
 	public:
+		void printList();
 		LinkedList();
 		bool isEmpty();
 		unsigned size();
@@ -28,14 +28,24 @@ namespace LL
 	};
 #endif
 
+
+	//The following function traverses forward to the end 
+	//and then prints the list out in reverse order
 	template<class T>
-	void LinkedList<T>::addRoot(T value)
+	void LinkedList<T>::printList()
 	{
-		Node<T> *n = new Node<T>;
-		n->data = value;
-		n->next = nullptr;
-		n->prev = nullptr;
-		size++;
+		//set a pointer to the head
+		Node<T>*p = this->Head;
+		//Traverse to the end of the list
+		while (p->next != nullptr)
+			p = p->next;
+		//Use prev pointer to traverse backward
+		//printing out values in reverse
+		while (p != nullptr)
+		{
+			cout << p->data << endl;
+			p = p->prev;
+		}
 	}
 
 	/* class definition ===============*/
@@ -63,14 +73,26 @@ namespace LL
 	{
 		if (isEmpty())
 		{
-			addRoot(value);
+			Head = new Node<T>;
+			Head->data = value;
+			Head->next = nullptr;
+			nodes++;
 		}
 		else
-		{//hello
-			n->next = Head;
-			n->prev = nullptr;
-			Head->prev = n;
-			Head = n;
+		{
+			//Set a pointer equal to the head
+			Node<T> *p = Head;
+			//Traverse to the end of the list
+			while (p->next != nullptr)
+				p = p->next;
+			//Create the new node
+			Node<T>*n = new Node<T>;
+			n->data = value;
+			n->next = nullptr;
+			nodes++;
+			//LINK THE NODES
+			n->prev = p;
+			p->next = n;
 		}
 
 	}

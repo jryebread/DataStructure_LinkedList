@@ -11,6 +11,7 @@ using namespace std;
 
 int main()
 {
+	
 	LL::LinkedList<int> nums;
 	cout << "Empty: " << boolalpha << nums.isEmpty() << noboolalpha << endl;
 	cout << "Size: " << nums.size() << endl << endl;

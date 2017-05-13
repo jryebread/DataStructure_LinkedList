@@ -15,8 +15,7 @@ int main()
 	LL::LinkedList<int> nums;
 	nums.addFront(1);
 	nums.addFront(2);
-	nums.addFront(3);
-	nums.addFront(4);
+
 	nums.printList();
 	cout << "Empty: " << boolalpha << nums.isEmpty() << noboolalpha << endl;
 	cout << "Size: " << nums.size() << endl << endl;

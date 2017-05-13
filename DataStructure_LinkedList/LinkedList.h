@@ -35,17 +35,12 @@ namespace LL
 	void LinkedList<T>::printList()
 	{
 		//set a pointer to the head
-		Node<T>*p = this->Head;
-		//Traverse to the end of the list
-		while (p->next != nullptr)
-			p = p->next;
-		//Use prev pointer to traverse backward
-		//printing out values in reverse
-		while (p != nullptr)
-		{
+		Node<T>*p = Head;
+		//Traverse to the end of the list printing all data
+		while (p != nullptr) {
 			cout << p->data << endl;
-			p = p->prev;
-		}
+			p = p->next;
+		}	
 	}
 
 	/* class definition ===============*/

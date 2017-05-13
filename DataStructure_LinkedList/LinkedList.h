@@ -37,6 +37,13 @@ namespace LL
 
 	/* class definition ===============*/
 	template<class T>
+	LinkedList<T>::LinkedList()
+	{
+		nodes = 0;
+		Head = nullptr;
+		Tail = nullptr;
+	}
+	template<class T>
 	void LinkedList<T>::printList()
 	{
 		//set a pointer to the head
@@ -50,15 +57,6 @@ namespace LL
 		}
 		
 	}
-
-	template<class T>
-	LinkedList<T>::LinkedList()
-	{
-		nodes = 0;
-		Head = nullptr;
-		Tail = nullptr;
-	}
-
 	template<class T>
 	bool LinkedList<T>::isEmpty()
 	{
@@ -154,7 +152,7 @@ namespace LL
 	void LinkedList<T>::addRoot(T value) {
 		// create new node
 		Head = new Node<T>(value);
-		// connect
+		// create Tail
 		Tail = Head;
 		nodes++;
 	}

@@ -29,6 +29,10 @@ namespace LL
 		void printList();
 		LinkedList();
 		bool isEmpty();
+		Node<T> *begin();
+		Node<T> *end();
+		void popFront();
+		void popBack();
 		bool insertBefore(T currVal, T value);
 		bool insertAfter(T currVal, T value);
 		unsigned size();
@@ -65,6 +69,19 @@ namespace LL
 		return nodes == 0;
 	}
 
+	template<class T>
+	Node<T>* LinkedList<T>::begin()
+	{
+		Node<T> *p = Head;
+		return p;
+	}
+
+	template<class T>
+	Node<T>* LinkedList<T>::end()
+	{
+		Node<T>*p = Tail;
+		return Tail;
+	}
 	template<class T>
 	unsigned LinkedList<T>::size()
 	{
@@ -110,6 +127,39 @@ namespace LL
 			//point tail to new node
 			Tail = n;
 			nodes++;
+		}
+	}
+	template<class T>
+	void LinkedList<T>::popFront() {
+		if (!isEmpty()) {
+			Node<T> *garbage = Head;
+			if (nodes == 1) {
+				Head = nullptr;
+				Tail = nullptr;
+			}
+			else {
+				Head = Head->next;
+				Head->prev = nullptr;
+			}
+			delete garbage;
+			nodes--;
+		}
+	}
+
+	template<class T>
+	void LinkedList<T>::popBack() {
+		if (!isEmpty()) {
+			Node<T> *garbage = Tail;
+			if (nodes == 1) {
+				Head = nullptr;
+				Tail = nullptr;
+			}
+			else {
+				Tail = Tail->prev;
+				Tail->next = nullptr;
+			}
+			delete garbage;
+			nodes--;
 		}
 	}
 	template<class T>

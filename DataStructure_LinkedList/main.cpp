@@ -19,8 +19,10 @@ int main()
 	names.insertAfter("Spot", "James");
 	names.printList();
 	cout << "Size: " << names.size() << endl;
-	cout << "__________" << endl;
-
+	cout << "___ReverseList___\n";
+	names.printRevList();
+	cout << "Size: " << names.size() << endl;
+	cout << "___Popped front and back___" << endl;
 	names.popBack();
 	names.popFront();
 	names.printList();

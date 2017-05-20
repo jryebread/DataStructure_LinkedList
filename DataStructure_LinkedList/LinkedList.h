@@ -2,10 +2,10 @@
 #define LINKEDLIST_H
 #include <iostream>
 //No CPP File because the templates mess stuff up apparently
-//All header definitions below
+//All definitions below class declaration
 namespace LL 
 {
-	/* struct NODE ====================*/
+	// struct NODE ====================//
 	template <class T>
 	struct Node {
 		T data;
@@ -16,17 +16,19 @@ namespace LL
 			:data(data), next(nullptr), prev(nullptr) {};
 	};
 
-	/* class ==========================*/
+	// class ==========================//
 	template <class T>
 	class LinkedList {
 	private:
 		unsigned nodes;
 		Node<T> *Head;
 		Node<T> *Tail;
+		//Helper functions
 		Node<T> *getNode(T value);
 		void addRoot(T value);
 	public:
 		void printList();
+		void printRevList();
 		LinkedList();
 		bool isEmpty();
 		Node<T> *begin();
@@ -41,7 +43,7 @@ namespace LL
 	};
 #endif
 
-	/* class definition ===============*/
+	/* class definitions ===============*/
 	template<class T>
 	LinkedList<T>::LinkedList()
 	{
@@ -62,6 +64,18 @@ namespace LL
 		p = p->next;
 		}
 		
+	}
+	template<class T>
+	void LinkedList<T>::printRevList()
+	{
+		//Set a pointer to the tail
+		Node<T>*p = this->Tail;
+		//Traverse to the start of list while printing
+		while (p != nullptr)
+		{
+			cout << p->data << endl;
+			p = p->prev;
+		}
 	}
 	template<class T>
 	bool LinkedList<T>::isEmpty()

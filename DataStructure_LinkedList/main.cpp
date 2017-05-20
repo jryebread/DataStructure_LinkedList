@@ -9,19 +9,23 @@ using namespace std;
 //Doubly link list can traverse backwards
 //Nodes simply hold data and have a pointer to another memory adress
 
+struct BankAccount
+{
+	int bankNum;
+	double balance;
+	string name;
+};
 int main()
 {
 	
-	LL::LinkedList<int> nums;
-	nums.addBack(7);
-	nums.addFront(1);
-	nums.addFront(2);
-	nums.addFront(3);
-	nums.addFront(4);
-	nums.insertAfter(4, 100);
-	nums.insertBefore(1, 200);
-	nums.printList();
-	cout << "Empty: " << boolalpha << nums.isEmpty() << noboolalpha << endl;
-	cout << "Size: " << nums.size() << endl << endl;
+	LL::LinkedList<BankAccount> accounts;
+	BankAccount user;
+	user.balance = 4000;
+	user.bankNum = 1234;
+	user.name = "Snowy";
+	accounts.addFront(user);
+	accounts.printList();
+	cout << "Empty: " << boolalpha << accounts.isEmpty() << noboolalpha << endl;
+	cout << "Size: " << accounts.size() << endl << endl;
 	return 0;
 }

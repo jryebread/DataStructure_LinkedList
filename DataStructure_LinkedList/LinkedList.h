@@ -1,6 +1,8 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 #include <iostream>
+//No CPP File because the templates mess stuff up apparently
+//All header definitions below
 namespace LL 
 {
 	/* struct NODE ====================*/
@@ -22,6 +24,7 @@ namespace LL
 		Node<T> *Head;
 		Node<T> *Tail;
 		Node<T> *getNode(T value);
+		void addRoot(T value);
 	public:
 		void printList();
 		LinkedList();
@@ -29,7 +32,6 @@ namespace LL
 		bool insertBefore(T currVal, T value);
 		bool insertAfter(T currVal, T value);
 		unsigned size();
-		void addRoot(T value);
 		void addFront(T value);
 		void addBack(T value);
 	};
